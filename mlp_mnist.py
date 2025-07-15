@@ -40,7 +40,8 @@ model.evaluate(X_test, y_test)
 # Predictions
 sample_images = X_test[:5]
 sample_labels = y_test[:5]
-predictions = model.predict(sample_images, sample_labels)
-
+predictions = model.predict(sample_images)
 print(predictions)
+result = np.argmax(predictions, axis=1)
+print(result)
 
