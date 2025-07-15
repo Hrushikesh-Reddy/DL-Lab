@@ -27,3 +27,13 @@ model.add(Flatten(input_shape=(28, 28)))
 model.add(Dense(64, activation="relu"))
 model.add(Dense(32, activation="relu"))
 model.add(Dense(10, activation="softmax"))
+
+# Compile the model
+model.compile(optimizer="Adam", loss="categorical_crossentropy", metrics=["accuracy"])
+
+# Train the model
+model.fit(X_train, y_train, epochs=100, batch_size=16)
+
+# Evaluate
+model.evaluate(X_test, y_test)
+
