@@ -4,7 +4,7 @@ from keras.datasets import mnist
 from keras.models import Sequential
 from keras.layers import Dense, Flatten
 from keras.utils import to_categorical
-
+import matplotlib.pyplot as plt
 #load the data
 
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
@@ -44,3 +44,10 @@ predictions = model.predict(sample_images)
 result = np.argmax(predictions, axis=1)
 print(result)
 
+plt.subplots(1,5)
+for i in range(5):
+    plt.subplot(1,5,i+1)
+    plt.title(f"Actual Label : {y_test[i]}\n Predicted Label : {result[i]}")
+    plt.imshow(sample_images[i], cmap='gray')
+
+plt.show()
