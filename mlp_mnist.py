@@ -32,8 +32,15 @@ model.add(Dense(10, activation="softmax"))
 model.compile(optimizer="Adam", loss="categorical_crossentropy", metrics=["accuracy"])
 
 # Train the model
-model.fit(X_train, y_train, epochs=100, batch_size=64)
+model.fit(X_train, y_train, epochs=10, batch_size=64)
 
 # Evaluate
 model.evaluate(X_test, y_test)
+
+# Predictions
+sample_images = X_test[:5]
+sample_labels = y_test[:5]
+predictions = model.predict(sample_images, sample_labels)
+
+print(predictions)
 
