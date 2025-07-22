@@ -26,7 +26,7 @@ model.add(Dense(10, activation="softmax"))
 
 # Compile
 
-model.compile(optimizer="Adam", loss="categorical_crossentropy", metrics = ["accuracy"])
+model.compile(optimizer="sgd", loss="categorical_crossentropy", metrics = ["accuracy"])
 
 # Train 
 

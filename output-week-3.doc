@@ -13,3 +13,13 @@ metrics : accuracy
 
 epochs : 10
 batch_size : 64
+
+# Experiment-2:
+
+no.of layers : 2
+
+hyperparameters:
+optimizer : sgd
+loss : categorical_crossentropy
+accuracy : 0.1019
+loss : 2.3025
