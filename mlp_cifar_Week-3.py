@@ -32,6 +32,9 @@ model.compile(optimizer="Adam", loss="categorical_crossentropy", metrics = ["acc
 
 model.fit(X_train, y_train, epochs=10, batch_size=64)
 
-#  Evaluate
+# Evaluate
+
 model.evaluate(X_test, y_test)
+
+# Predict
 
