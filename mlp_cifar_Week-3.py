@@ -2,6 +2,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Flatten
 from keras.datasets import cifar10
 from keras.utils import to_categorical
+import matplotlib.pyplot as plt
 
 #dont write in record
 import ssl
@@ -27,15 +28,21 @@ model.add(Dense(10, activation="softmax"))
 
 # Compile
 
-model.compile(optimizer="sgd", loss="categorical_crossentropy", metrics = ["accuracy"])
+model.compile(optimizer="Adam", loss="categorical_crossentropy", metrics = ["accuracy"])
 
 # Train 
 
-model.fit(X_train, y_train, epochs=10, batch_size=64)
+history = model.fit(X_train, y_train, epochs=10, batch_size=64, validation_split=0.2)
 
 # Evaluate
 
-model.evaluate(X_test, y_test)
+accuracy, loss = model.evaluate(X_test, y_test)
 
-# Predict
+# Visualization
+
+plt.plot(history.history['accuracy'], color="blue", label="train_accuracy")
+plt.plot(history.history['val_accuracy'], color="red", label = "val_accuracy")
+plt.legend()
+plt.title("Epochs vs Accuracy")
+plt.show()
 
