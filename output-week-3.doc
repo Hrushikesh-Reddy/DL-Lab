@@ -59,4 +59,7 @@ epochs : increased from 10 to 30
 Evaluating on training dataset
 output:
 accuracy :  0.2410
-loss : 1.9449  
+loss : 1.9449 
+
+
+dell e2422hs

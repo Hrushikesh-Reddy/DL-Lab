@@ -22,21 +22,24 @@ y_test = to_categorical(y_test)
 
 model = Sequential()
 model.add(Flatten(input_shape=(32, 32, 3)))
+model.add(Dense(1024, activation="relu"))
+model.add(Dense(512, activation="relu"))
 model.add(Dense(256, activation="relu"))
 model.add(Dense(128, activation="relu"))
 model.add(Dense(10, activation="softmax"))
 
 # Compile
 
-model.compile(optimizer="Adam", loss="categorical_crossentropy", metrics = ["accuracy"])
+model.compile(optimizer="adam", loss="categorical_crossentropy", metrics = ["accuracy"])
 
 # Train 
 
-history = model.fit(X_train, y_train, epochs=10, batch_size=64, validation_split=0.2)
+history = model.fit(X_train, y_train, epochs=30, batch_size=64, validation_split=0.2)
 
 # Evaluate
 
-accuracy, loss = model.evaluate(X_test, y_test)
+test_accuracy, loss = model.evaluate(X_test, y_test)
+print(f"test_accuracy:{test_accuracy}\nLoss:{loss}")
 
 # Visualization
 
