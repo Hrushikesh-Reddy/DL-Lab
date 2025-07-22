@@ -16,10 +16,17 @@ batch_size : 64
 
 # Experiment-2:
 
-no.of layers : 2
-
 hyperparameters:
 optimizer : sgd
 loss : categorical_crossentropy
 accuracy : 0.1019
 loss : 2.3025
+
+# Experiment-3:
+
+hyperparameters:
+one more layer with 256 neurons is added.
+optimizer : sgd
+loss : categorical_crossentropy
+accuracy : 0.1001
+loss : 2.3026
